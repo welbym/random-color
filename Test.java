@@ -6,7 +6,10 @@ public static void main(String[] args) {
 	RandomColor rndmClr = new RandomColor();
 	Scanner scn = new Scanner(System.in);
 
-	rndmClr.setColor();
-	System.out.println(rndmClr.getColor());
+	rndmClr.setHexColor();
+	System.out.println(rndmClr.getHexColor());
+
+	rndmClr.setRGBColor();
+	System.out.println(rndmClr.getRGBColor());
 }
 }
