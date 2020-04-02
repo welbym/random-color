@@ -1,22 +1,17 @@
 import java.util.*;
 import java.lang.*;
 
+/** represents random color */
 public class RandomColor {
-/**
- * holds int values for hex digits
- */
+/** holds int values for hex digits */
 private ArrayList<Integer> digits;
 
-/**
- * represents hex color
- */
+/** represents hex color */
 private String hexColor;
 
-/**
- * Random class used to get random digits
- */
+/** Random class used to get random digits */
 private Random rndm;
-RandomColor() {
+public RandomColor() {
 	// add the hex digits to a list
 	digits = new ArrayList<Integer>();
 	for (int num = 0; num < 16; num++) {
@@ -24,31 +19,22 @@ RandomColor() {
 	}
 
 	// sets blank value for hexColor
-	hexColor = "";
+	hexColor = "#";
 
 	// sets random
 	rndm = new Random();
 }
 
-protected void setColor() {
-	hexColor += "#";
+public void setColor() {
 	for (int i = 0; i < 6; i++) {
-		hexColor += Character.forDigit(digits.get(rndm.nextInt(16)), 16);
+		hexColor += Character.toUpperCase(Character.forDigit(digits.get(rndm.nextInt(16)), 16));
 	}
 }
 
-protected String getColor() {
+public String getColor() {
 	if (digits == null) {
 		return "";
 	}
 	return hexColor;
-}
-
-public static void main(String[] args) {
-	RandomColor rndmClr = new RandomColor();
-	Scanner scn = new Scanner(System.in);
-
-	rndmClr.setColor();
-	System.out.println(rndmClr.getColor());
 }
 }
